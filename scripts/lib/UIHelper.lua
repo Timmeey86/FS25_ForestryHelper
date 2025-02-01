@@ -65,24 +65,24 @@ end
 
 
 ---Adds a simple yes/no switch to the UI
----@param generalSettingsPage	table	@The base game object for the settings page
----@param id					string	@The unique ID of the new element
----@param i18nTextId			string	@The key in the internationalization XML (must be two keys with a _short and _long suffix)
----@param target				table	@The object which contains the callback func
----@param callbackFunc			string	@The name of the function to call when the value changes
----@return						table	@The created object
+---@param generalSettingsPage   table       @The base game object for the settings page
+---@param id                    string      @The unique ID of the new element
+---@param i18nTextId            string      @The key in the internationalization XML (must be two keys with a _short and _long suffix)
+---@param target                table       @The object which contains the callback func
+---@param callbackFunc          string      @The name of the function to call when the value changes
+---@return                      table       @The created object
 function UIHelper.createBoolElement(generalSettingsPage, id, i18nTextId, target, callbackFunc)
 	return createElement(generalSettingsPage, generalSettingsPage.checkWoodHarvesterAutoCutBox, id, i18nTextId, target, callbackFunc)
 end
 
 ---Creates an element which allows choosing one out of several text values
----@param generalSettingsPage	table	@The base game object for the settings page
----@param id					string	@The unique ID of the new element
----@param i18nTextId			string	@The key in the internationalization XML (must be two keys with a _short and _long suffix)
----@param i18nValueMap			table	@An map of values containing translation IDs for the possible values
----@param target				table	@The object which contains the callback func
----@param callbackFunc			string	@The name of the function to call when the value changes
----@return						table	@The created object
+---@param generalSettingsPage   table       @The base game object for the settings page
+---@param id                    string      @The unique ID of the new element
+---@param i18nTextId            string      @The key in the internationalization XML (must be two keys with a _short and _long suffix)
+---@param i18nValueMap          table       @An map of values containing translation IDs for the possible values
+---@param target                table       @The object which contains the callback func
+---@param callbackFunc          string      @The name of the function to call when the value changes
+---@return                      table       @The created object
 function UIHelper.createChoiceElement(generalSettingsPage, id, i18nTextId, i18nValueMap, target, callbackFunc)
 	local choiceElementBox = createElement(generalSettingsPage, generalSettingsPage.multiVolumeVoiceBox, id, i18nTextId, target, callbackFunc)
 
@@ -97,16 +97,16 @@ function UIHelper.createChoiceElement(generalSettingsPage, id, i18nTextId, i18nV
 end
 
 ---Creates an element which allows choosing one out of several integer values
----@param generalSettingsPage	table	@The base game object for the settings page
----@param id					string	@The unique ID of the new element
----@param i18nTextId			string	@The key in the internationalization XML (must be two keys with a _short and _long suffix)
----@param minValue				integer	@The first value which can be selected
----@param maxValue				integer	@The last value which can be selected
----@param step					integer	@The difference between any two values. Make sure this matches max value
----@param unit					string	@The unit to be displayed (may be empty)
----@param target				table	@The object which contains the callback func
----@param callbackFunc			string	@The name of the function to call when the value changes
----@return						table	@The created object
+---@param generalSettingsPage   table       @The base game object for the settings page
+---@param id                    string      @The unique ID of the new element
+---@param i18nTextId            string      @The key in the internationalization XML (must be two keys with a _short and _long suffix)
+---@param minValue              integer     @The first value which can be selected
+---@param maxValue              integer     @The last value which can be selected
+---@param step                  integer     @The difference between any two values. Make sure this matches max value
+---@param unit                  string      @The unit to be displayed (may be empty)
+---@param target                table       @The object which contains the callback func
+---@param callbackFunc          string      @The name of the function to call when the value changes
+---@return                      table       @The created object
 function UIHelper.createRangeElement(generalSettingsPage, id, i18nTextId, minValue, maxValue, step, unit, target, callbackFunc)
 	local rangeElementBox = createElement(generalSettingsPage, generalSettingsPage.multiVolumeVoiceBox, id, i18nTextId, target, callbackFunc)
 
@@ -131,17 +131,20 @@ function UIHelper.createRangeElement(generalSettingsPage, id, i18nTextId, minVal
 	return rangeElementBox
 end
 
----Lets the focus manager know there are additional controls it should handle
+---Hooks into the focus manager at just the right point in time to register any relevant controls.
+---Make sure you also supply your section headers here!
 ---@param controls table @A list of controls
 function UIHelper.registerFocusControls(controls)
-	for _, control in ipairs(controls) do
-		if not control.focusId or not FocusManager.currentFocusData.idToElementMapping[control.focusId] then
-			if not FocusManager:loadElementFromCustomValues(control, nil, nil, false, false) then
-				print(("Failed loading focus element for %s"):format(control.id or control.name))
-			else
-				print((">>> %s has focus ID %s"):format( control.id or control.name, control.focusId))
-				print(">>> Mapping is " .. tostring(FocusManager.currentFocusData.idToElementMapping[control.focusId]))
+	FocusManager.setGui = Utils.appendedFunction(FocusManager.setGui, function(_, gui)
+		for _, control in ipairs(controls) do
+			if not control.focusId or not FocusManager.currentFocusData.idToElementMapping[control.focusId] then
+				if not FocusManager:loadElementFromCustomValues(control, nil, nil, false, false) then
+					Logging.warning("Failed loading focus element for %s. Keyboard/controller menu navigation might be bugged.", control.id or control.name)
+				end
 			end
 		end
-	end
+		local settingsPage = g_gui.screenControllers[InGameMenu].pageSettings
+		-- Invalidate the layout in order to relink items properly
+		settingsPage.generalSettingsLayout:invalidateLayout()
+	end)
 end

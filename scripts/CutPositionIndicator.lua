@@ -381,7 +381,7 @@ function CutPositionIndicator:after_updateRingSelector(chainsaw, shape, ...)
     if chainsaw.carryingPlayer and chainsaw.carryingPlayer == g_localPlayer and self.ring ~= nil then
         -- Just tie the visibility of our ring to the one of the chainsaw's ring selector, but don't show it if the tree hasn't been cut already
         local cutIndicatorShallBeVisible = false
-        if chainsaw.spec_chainsaw.ringNode ~= nil and getVisibility(chainsaw.spec_chainsaw.ringNode) and shape.node ~= nil and shape.node ~= 0 and getRigidBodyType(shape.node) ~= RigidBodyType.STATIC then
+        if chainsaw.spec_chainsaw.ringNode ~= nil and getVisibility(chainsaw.spec_chainsaw.ringNode) and shape.node ~= nil and shape.node ~= 0 and entityExists(shape.node) and getRigidBodyType(shape.node) ~= RigidBodyType.STATIC then
             cutIndicatorShallBeVisible = (self.indicatorMode ~= CutPositionIndicator.INDICATOR_MODE.OFF)
         end
         setVisibility(self.ring, cutIndicatorShallBeVisible)

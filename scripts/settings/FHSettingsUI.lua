@@ -73,6 +73,7 @@ function FHSettingsUI.injectUiSettings(settings)
 	fhSettingsUI.settings = settings
 	fhSettingsUI:updateUiElements()
 
+	UIHelper.registerFocusControls({fhSettingsUI.groupTitle, fhSettingsUI.lengthFactorMode, fhSettingsUI.lengthFactorAbs, fhSettingsUI.lengthFactorRel})
 	settingsPage.generalSettingsLayout:invalidateLayout()
 
 	-- Remember values for future calls
@@ -84,10 +85,6 @@ InGameMenuSettingsFrame.onFrameOpen = Utils.appendedFunction(InGameMenuSettingsF
 	if settingsPage.forestryHelperSettings then
 		local fhSettingsUI = settingsPage.forestryHelperSettings
 		fhSettingsUI:updateUiElements()
-		local focusMapping = FocusManager.currentFocusData.idToElementMapping
-		if not focusMapping[fhSettingsUI.groupTitle.focusId] then
-			Logging.error("3 Settings title has lost its focus mapping")
-		end
 	end
 end)
 
@@ -126,15 +123,3 @@ function FHSettingsUI:onRelFactorChanged(newState)
 	self.settings.lengthFactorRelIndex = newState
 	self.settings.cutPositionIndicator:updateF1MenuTexts()
 end
-
-FocusManager.setGui = Utils.appendedFunction(FocusManager.setGui, function(_, gui)
-	if gui == "ingameMenuSettings" then
-		local settingsPage = g_gui.screenControllers[InGameMenu].pageSettings
-		local fhSettingsUI = settingsPage.forestryHelperSettings
-		if fhSettingsUI then
-			UIHelper.registerFocusControls({fhSettingsUI.groupTitle, fhSettingsUI.lengthFactorMode, fhSettingsUI.lengthFactorAbs, fhSettingsUI.lengthFactorRel})
-		end
-		-- Invalidate the layout in order to relink items properly
-		settingsPage.generalSettingsLayout:invalidateLayout()
-	end
-end)
