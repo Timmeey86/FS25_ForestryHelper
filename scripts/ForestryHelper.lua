@@ -305,7 +305,8 @@ local settings = FHSettings.new(cutPositionIndicator)
 local settingsRepository = FHSettingsRepository.new(settings)
 
 -- Note: For some reason this method won't be called if we register the new function within Mission00.loadMission00Finished, while stuff like onHeldStart has no issues
-HandToolChainsaw.updateRingSelector = Utils.appendedFunction(HandToolChainsaw.updateRingSelector, function(chainsaw, shape, ...) cutPositionIndicator:after_updateRingSelector(chainsaw, shape, ...) end)
+HandToolChainsaw.updateRingSelector = Utils.appendedFunction(HandToolChainsaw.updateRingSelector, 
+    function(chainsaw, shape, canBeCut, minY, maxY, minZ, maxZ) cutPositionIndicator:after_updateRingSelector(chainsaw, shape, canBeCut, minY, maxY, minZ, maxZ) end)
 HandToolChainsaw.updateRingSelector = Utils.overwrittenFunction(HandToolChainsaw.updateRingSelector, onChainsawUpdateRingSelector)
 
 settingsRepository:restoreSettings()

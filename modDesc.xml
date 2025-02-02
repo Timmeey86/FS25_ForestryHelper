@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="no" ?>
 <modDesc descVersion="94">
     <author>Farmsim Tim (timmeey86)</author>
-    <version>1.0.0.1</version>
+    <version>1.0.0.2</version>
     <title>
         <en>Forestry Helper</en>
         <de>Forstwirtschaftshelfer</de>
@@ -37,6 +37,9 @@ GitHub link:
 https://github.com/Timmeey86/FS25_ForestryHelper
 
 Changelog:
+1.0.0.2:
+- Fixed an issue where the length indicator would never be shown on very thick logs
+
 1.0.0.1:
 - Fixed a client freeze which could occur in multiplayer if the client still had a reference to a tree which no longer exists.
 ]]></en>
@@ -66,6 +69,9 @@ GitHub link:
 https://github.com/Timmeey86/FS25_ForestryHelper
 
 Changelog:
+1.0.0.2:
+- Problem behoben, durch das der Längenmodus bei sehr dicken Baumstämmen nie funktionierte
+
 1.0.0.1:
 - Problem behoben, durch das das Spiel einfrieren konnte, wenn der Client eine Referenz zu einem nicht mehr existierenden Baum hatte.
 ]]></de>

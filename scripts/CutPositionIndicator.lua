@@ -374,21 +374,29 @@ end
 ---Show or hide our own ring whenever the visibliity of the chainsaw's ring selector changes
 ---@param chainsaw table @The chain saw
 ---@param shape RingSelectorInfo @Contains information about the split shape the chainsaw is pointing at
-function CutPositionIndicator:after_updateRingSelector(chainsaw, shape, ...)
+---@param canBeCut boolean @True if the cut is currently possible
+---@param minY number @The minimum Y value of the tree at the cut location
+---@param maxY number @The maximum Y value of the tree at the cut location
+---@param minZ number @The minimum Z value of the tree at the cut location
+---@param maxZ number @The maximum Z value of the tree at the cut location
+function CutPositionIndicator:after_updateRingSelector(chainsaw, shape, canBeCut, minY, maxY, minZ, maxZ)
     if self.traceHooks then
         print(MOD_NAME .. ": after_updateRingSelector")
     end
     if chainsaw.carryingPlayer and chainsaw.carryingPlayer == g_localPlayer and self.ring ~= nil then
         -- Just tie the visibility of our ring to the one of the chainsaw's ring selector, but don't show it if the tree hasn't been cut already
         local cutIndicatorShallBeVisible = false
-        if chainsaw.spec_chainsaw.ringNode ~= nil and getVisibility(chainsaw.spec_chainsaw.ringNode) and shape.node ~= nil and shape.node ~= 0 and entityExists(shape.node) and getRigidBodyType(shape.node) ~= RigidBodyType.STATIC then
+        if canBeCut
+            and chainsaw.spec_chainsaw.ringNode ~= nil and getVisibility(chainsaw.spec_chainsaw.ringNode)
+            and shape.node ~= nil and shape.node ~= 0 and entityExists(shape.node)
+            and getRigidBodyType(shape.node) ~= RigidBodyType.STATIC then
+
             cutIndicatorShallBeVisible = (self.indicatorMode ~= CutPositionIndicator.INDICATOR_MODE.OFF)
         end
         setVisibility(self.ring, cutIndicatorShallBeVisible)
 
         if cutIndicatorShallBeVisible then
-            -- FS25: The center of the ring selector is now supplied as an argument
-            local chainsawX, chainsawY, chainsawZ = shape.x, shape.y, shape.z
+            local chainsawX, chainsawY, chainsawZ = localToWorld(chainsaw.spec_chainsaw.ringNode, 0, 0, 0)
 
             -- Unit vectors along the local X axis of the log, same for Y and Z below
             -- There is a special case for trees, however, since they grow in world Y direction, so the X axis is not their main axis
@@ -400,8 +408,9 @@ function CutPositionIndicator:after_updateRingSelector(chainsaw, shape, ...)
             -- Detect how far the beginning of the tree is away
             local lenBelow = getSplitShapePlaneExtents(shape.node, chainsawX, chainsawY, chainsawZ, xx,xy,xz)
 
-            -- Make a large enough search square to find the tree again
-            local searchSquareSize = 2
+            -- Make a large enough search square to find the tree again (30% larger than the diameter)
+            local diameter = math.max(maxY - minY, maxZ - minZ)
+            local searchSquareSize = diameter * 2
             local searchSquareCorner = {}
             if self.indicatorMode == CutPositionIndicator.INDICATOR_MODE.LENGTH then
                 searchSquareCorner = self:getIndicatorSearchLocationForFixedWidth(chainsawX, chainsawY, chainsawZ, xx,xy,xz, yx,yy,yz, zx,zy,zz, lenBelow, searchSquareSize)
@@ -410,7 +419,7 @@ function CutPositionIndicator:after_updateRingSelector(chainsaw, shape, ...)
             end
 
             if searchSquareCorner ~= nil and self.debugPositionDetection then
-                DebugUtil.drawDebugGizmoAtWorldPos(chainsawX,chainsawY,chainsawZ, yx,yy,yz, zx,zy,zz, "Cut", false)
+                DebugUtil.drawDebugGizmoAtWorldPos(chainsawX,chainsawY,chainsawZ, yx,yy,yz, zx,zy,zz, ("%s, %.1f, %.1f, %.1f, %.1f: Cut"):format(canBeCut, minY or -99999, minZ or -99999, maxY or -99999, maxZ or -99999), false)
                 DebugUtil.drawDebugGizmoAtWorldPos(searchSquareCorner.x, searchSquareCorner.y, searchSquareCorner.z, yx,yy,yz, zx,zy,zz, "search", false)
                 DebugUtil.drawDebugAreaRectangle(
                     searchSquareCorner.x, searchSquareCorner.y, searchSquareCorner.z,
@@ -422,6 +431,15 @@ function CutPositionIndicator:after_updateRingSelector(chainsaw, shape, ...)
                     searchSquareCorner.z + zz * searchSquareSize,
                     false, .7,0,.7
                 )
+                if minY and minZ and maxY and maxZ then
+                    DebugUtil.drawDebugAreaRectangle(
+                        chainsawX, minY, minZ,
+                        chainsawX, minY, maxZ,
+                        chainsawX, maxY, maxZ,
+                        false, .3, .8, .3
+                    )
+                    DebugUtil.drawDebugGizmoAtWorldPos(chainsawX, minY, minZ, yx, yy, yz, zx, zy, zz, "MinY/MinZ", false)
+                end
             end
 
             -- Search in a square starting in the search square corner. We supply X and Y unit vectors, but the function will actually search in the Y/Z plane
