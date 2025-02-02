@@ -1,5 +1,9 @@
 # FS25 Forestry Helper
 
+## Modhub Link
+
+https://www.farming-simulator.com/mod.php?mod_id=305793&title=fs2025
+
 ## Acknowledgements
 
 The modhub icon was built by using these icons:
