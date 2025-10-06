@@ -40,6 +40,7 @@ https://github.com/Timmeey86/FS25_ForestryHelper
 Changelog:
 1.0.0.5:
 - Fixed an issue where the length indicator would never be shown on very thick logs
+- Added french translation provided by Shi974
 - Added brazilian translation provided by Myiamoto86
 - Fixed a mod conflict which would spam the log
 - Fixed an issue where the info box would display mismatching labels and values sometimes
@@ -76,6 +77,7 @@ Changelog:
 1.0.0.5:
 - Problem behoben, durch das der Längenmodus bei sehr dicken Baumstämmen nie funktionierte
 - Brasilianische Übersetzung hinzugefügt, bereitgestellt von Myiamoto86
+- Französische Übersetzung hinzugefügt, bereitgestellt von Shi974
 - Mod-Konflikt behoben, durch den das Log File überflutet wurde
 - Problem behoben, durch das das Info-Fenster manchmal Beschriftungen und Werte anzeigte, die nicht zusammenpassten
 
@@ -112,6 +114,7 @@ Changelog:
 1.0.0.5 :
 - Correction d'un problème qui empêchait l'affichage de l'indicateur de longueur sur les bûches très épaisses.
 - Ajout de la traduction brésilienne fournie par Myiamoto86.
+- Ajout de la traduction française fournie par Shi974.
 - Correction d'un conflit de mods qui provoquait un spam dans le journal.
 - Correction d'un problème où la boîte d'information affichait parfois des étiquettes et des valeurs non correspondantes.
 
