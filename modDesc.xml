@@ -38,10 +38,11 @@ GitHub link:
 https://github.com/Timmeey86/FS25_ForestryHelper
 
 Changelog:
-1.0.0.4:
+1.0.0.5:
 - Fixed an issue where the length indicator would never be shown on very thick logs
 - Added brazilian translation provided by Myiamoto86
 - Fixed a mod conflict which would spam the log
+- Fixed an issue where the info box would display mismatching labels and values sometimes
 
 1.0.0.1:
 - Fixed a client freeze which could occur in multiplayer if the client still had a reference to a tree which no longer exists.
@@ -72,11 +73,11 @@ GitHub link:
 https://github.com/Timmeey86/FS25_ForestryHelper
 
 Changelog:
-1.0.0.4:
+1.0.0.5:
 - Problem behoben, durch das der Längenmodus bei sehr dicken Baumstämmen nie funktionierte
 - Brasilianische Übersetzung hinzugefügt, bereitgestellt von Myiamoto86
 - Mod-Konflikt behoben, durch den das Log File überflutet wurde
-
+- Problem behoben, durch das das Info-Fenster manchmal Beschriftungen und Werte anzeigte, die nicht zusammenpassten
 
 1.0.0.1:
 - Problem behoben, durch das das Spiel einfrieren konnte, wenn der Client eine Referenz zu einem nicht mehr existierenden Baum hatte.
@@ -107,16 +108,15 @@ Lien GitHub :
 https://github.com/Timmeey86/FS25_ForestryHelper
 
 
-Journal des modifications :
-1.0.0.4 :
+Changelog:
+1.0.0.5 :
 - Correction d'un problème qui empêchait l'affichage de l'indicateur de longueur sur les bûches très épaisses.
 - Ajout de la traduction brésilienne fournie par Myiamoto86.
 - Correction d'un conflit de mods qui provoquait un spam dans le journal.
+- Correction d'un problème où la boîte d'information affichait parfois des étiquettes et des valeurs non correspondantes.
 
 1.0.0.1 :
 - Correction d'un blocage du client qui pouvait se produire en mode multijoueur si le client avait toujours une référence à un arbre qui n'existait plus.
-
-Traduit avec DeepL.com (version gratuite)
 ]]></fr>
     </description>
     
