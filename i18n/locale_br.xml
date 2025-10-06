@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<l10n>
+    <translationContributors>Miyamoto86</translationContributors>
+    <texts>
+        <text name="fh_volume" text="Volume" />
+        <text name="fh_current_value" text="Valor atual" />
+        <text name="fh_total_quality" text="Qualidade total (máx. 120%)" />
+        <text name="fh_liters_if_chipped" text="Volume se estiver lascado" />
+        <text name="fh_current_value_if_chipped" text="Valor da lasca de madeira (agora)" />
+        <text name="fh_potential_value_if_chipped" text="Valor da lasca de madeira (máx.)" />
+        <text name="fh_shape" text="Forma" />
+        <text name="fh_length" text="Comprimento" />
+        <text name="fh_attachments" text="Quantidade de galhos" />
+        <text name="fh_perfect" text="Perfeito" />
+        <text name="fh_good" text="Bom" />
+        <text name="fh_acceptable" text="Aceitável" />
+        <text name="fh_bad" text="Ruim" />
+        <text name="fh_desired_length" text="Comprimento desejado" />
+        <text name="fh_weight_limit" text="Limite de peso" />
+        <text name="fh_indicator_mode" text="Modo de indicação" />
+        <text name="fh_mode_off" text="Desligado" />
+        <text name="fh_mode_length" text="Comprimento" />
+        <text name="fh_mode_weight" text="Peso" />
+        <text name="input_CYCLE_LENGTH_INDICATOR" text="Alterar o comprimento desejado" />
+        <text name="input_CYCLE_WEIGHT_INDICATOR" text="Alterar o limite de peso" />
+        <text name="input_SWITCH_INDICATOR_MODE" text="Alterar o modo de indicação" />
+        <text name="fh_cut_not_possible" text="O corte falhou. Remova os galhos ou tente em um local diferente." />
+        <!-- UI Settings -->
+        <text name="fh_group_title" text="Ajudante florestal" />
+        <text name="fh_length_factor_mode_short" text="Ajuste de comprimento" />
+        <text name="fh_length_factor_mode_long" text="Define o modo de ajuste automático do comprimento ao cortar no comprimento desejado." />
+        <text name="fh_length_factor_mode_abs" text="Absoluto" />
+        <text name="fh_length_factor_mode_rel" text="Relativo" />
+        <text name="fh_length_factor_abs_short" text="Comprimento adicional" />
+        <text name="fh_length_factor_abs_long" text="Define a quantidade de metros que será adicionada ao comprimento desejado." />
+        <text name="fh_length_factor_rel_short" text="Multiplicador de comprimento" />
+        <text name="fh_length_factor_rel_long" text="Define a porcentagem que será adicionada ao comprimento desejado." />
+    </texts>
+</l10n>
