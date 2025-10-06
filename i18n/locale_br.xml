@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="no" ?>
 <l10n>
-    <translationContributors>Miyamoto86</translationContributors>
+    <translationContributors>Myiamoto86</translationContributors>
     <texts>
         <text name="fh_volume" text="Volume" />
         <text name="fh_current_value" text="Valor atual" />
