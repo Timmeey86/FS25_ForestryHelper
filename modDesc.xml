@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="no" ?>
 <modDesc descVersion="101">
     <author>Farmsim Tim (timmeey86)</author>
-    <version>1.0.0.5</version>
+    <version>1.0.0.6</version>
     <title>
         <en>Forestry Helper</en>
         <de>Forstwirtschaftshelfer</de>
@@ -38,6 +38,9 @@ GitHub link:
 https://github.com/Timmeey86/FS25_ForestryHelper
 
 Changelog:
+1.0.0.6:
+- Fixed a crash which would happen when looking at a tree stump as the first object after loading the save
+
 1.0.0.5:
 - Fixed an issue where the length indicator would never be shown on very thick logs
 - Added french translation provided by Shi974
@@ -74,6 +77,9 @@ GitHub link:
 https://github.com/Timmeey86/FS25_ForestryHelper
 
 Changelog:
+1.0.0.6:
+- Absturz behoben, der auftrat, wenn man nach dem Laden des Spiels zuerst auf einen Baumstumpf schaute
+
 1.0.0.5:
 - Problem behoben, durch das der Längenmodus bei sehr dicken Baumstämmen nie funktionierte
 - Brasilianische Übersetzung hinzugefügt, bereitgestellt von Myiamoto86

@@ -95,6 +95,11 @@ function ForestryHelper:extendSplitShapeOverlay(playerHudUpdater, superFunc, spl
     -- This way, if Giants changes their code, we don't have to adapt our mod in many cases
     superFunc(playerHudUpdater, splitShape)
     local box = playerHudUpdater.objectBox
+    -- Skip if the box has not been initialized (e.g. when looking at a stump as the first thing after entering the game)
+    if not box.currentLineIndex then
+        dbgOverlayPrint("Exiting because object box has not been initialized yet")
+        return
+    end
 
     -- Do nothing if we're not looking at a tree or piece of wood
     if not entityExists(splitShape) or getSplitType(splitShape) == 0 then
@@ -102,7 +107,7 @@ function ForestryHelper:extendSplitShapeOverlay(playerHudUpdater, superFunc, spl
         --       so it felt like we should probably do the same.
         -- Note: The split type seems to be the type of tree, starting from 1, so a type of 0 would mean this is not a tree. It also looks like trees are the
         --       only thing which classify as split shape (with a type > 0).
-        dbgOverlayPrint("Existing because entity does not exist. Split Shape = %s", splitShape)
+        dbgOverlayPrint("Exiting because entity does not exist. Split Shape = %s", splitShape)
         return
     end
     local treeOrPieceOfWood = splitShape -- alias for readability
