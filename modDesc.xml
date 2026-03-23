@@ -117,6 +117,9 @@ https://github.com/Timmeey86/FS25_ForestryHelper
 
 
 Changelog:
+1.0.0.6:
+- Correction d'un plantage qui survenait lorsqu'on regardait une souche d'arbre en premier après avoir chargé le jeu
+
 1.0.0.5 :
 - Correction d'un problème qui empêchait l'affichage de l'indicateur de longueur sur les bûches très épaisses.
 - Ajout de la traduction brésilienne fournie par Myiamoto86.
