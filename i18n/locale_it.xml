@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<l10n>
+    <translationContributors>FirenzeIT</translationContributors>
+    <texts>
+        <text name="fh_volume" text="Volume" />
+        <text name="fh_current_value" text="Valore attuale" />
+        <text name="fh_total_quality" text="Qualità complessiva (max. 120%)" />
+        <text name="fh_liters_if_chipped" text="Volume se cippato" />
+        <text name="fh_current_value_if_chipped" text="Valore del cippato (attuale)" />
+        <text name="fh_potential_value_if_chipped" text="Valore del cippato (max.)" />
+        <text name="fh_shape" text="Forma" />
+        <text name="fh_length" text="Lunghezza" />
+        <text name="fh_attachments" text="Numero di rami" />
+        <text name="fh_perfect" text="perfetta" />
+        <text name="fh_good" text="buona" />
+        <text name="fh_acceptable" text="accettabile" />
+        <text name="fh_bad" text="scadente" />
+        <text name="fh_desired_length" text="Lunghezza desiderata" />
+        <text name="fh_weight_limit" text="Limite di peso" />
+        <text name="fh_indicator_mode" text="Modalità indicatore" />
+        <text name="fh_mode_off" text="Disattivato" />
+        <text name="fh_mode_length" text="Lunghezza" />
+        <text name="fh_mode_weight" text="Peso" />
+        <text name="input_CYCLE_LENGTH_INDICATOR" text="Cambia lunghezza desiderata" />
+        <text name="input_CYCLE_WEIGHT_INDICATOR" text="Cambia limite di peso" />
+        <text name="input_SWITCH_INDICATOR_MODE" text="Cambia modalità indicatore" />
+        <text name="fh_cut_not_possible" text="Taglio non riuscito. Rimuovi i rami o prova in un altro punto." />
+        <!-- UI Settings -->
+        <text name="fh_group_title" text="Assistente Forestale" />
+        <text name="fh_length_factor_mode_short" text="Regolazione Lunghezza" />
+        <text name="fh_length_factor_mode_long" text="Definisce la modalità di regolazione automatica della lunghezza durante il taglio alla lunghezza desiderata." />
+        <text name="fh_length_factor_mode_abs" text="Assoluta" />
+        <text name="fh_length_factor_mode_rel" text="Relativa" />
+        <text name="fh_length_factor_abs_short" text="Lunghezza Aggiuntiva" />
+        <text name="fh_length_factor_abs_long" text="Definisce il numero di metri da aggiungere alla lunghezza desiderata." />
+        <text name="fh_length_factor_rel_short" text="Moltiplicatore Lunghezza" />
+        <text name="fh_length_factor_rel_long" text="Definisce la percentuale da aggiungere alla lunghezza desiderata." />
+    </texts>
+</l10n>

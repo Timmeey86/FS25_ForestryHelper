@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no" ?>
-<modDesc descVersion="107">
+<modDesc descVersion="116" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://validation.gdn.giants-software.com/xml/fs25/modDesc.xsd">
     <author>Farmsim Tim (timmeey86)</author>
     <version>1.0.0.6</version>
     <title>
@@ -9,6 +9,7 @@
         <pl>Pomocnik Pilarza</pl>
         <fr>Aide À La Sylviculture</fr>
         <br>Ajudante Florestal</br>
+        <it>Assistente Forestale</it>
     </title>
     
     <description>
@@ -117,9 +118,6 @@ https://github.com/Timmeey86/FS25_ForestryHelper
 
 
 Changelog:
-1.0.0.6:
-- Correction d'un plantage qui survenait lorsqu'on regardait une souche d'arbre en premier après avoir chargé le jeu
-
 1.0.0.5 :
 - Correction d'un problème qui empêchait l'affichage de l'indicateur de longueur sur les bûches très épaisses.
 - Ajout de la traduction brésilienne fournie par Myiamoto86.
@@ -130,8 +128,47 @@ Changelog:
 1.0.0.1 :
 - Correction d'un blocage du client qui pouvait se produire en mode multijoueur si le client avait toujours une référence à un arbre qui n'existait plus.
 ]]></fr>
+        <it><![CDATA[
+Descrizione:
+Questa mod mostra informazioni utili sui tronchi e aiuta a tagliarli alla lunghezza o al peso desiderati.
+
+Puoi utilizzare le scorciatoie visualizzate nel menu F1 per passare dalla modalità lunghezza alla modalità peso e per selezionare la lunghezza o il peso di destinazione.
+La modalità lunghezza è precisa, mentre la modalità peso fornisce soltanto una stima. La modalità peso non è disponibile in multigiocatore.
+
+La motosega si aggancia alla posizione indicata quando si trova entro 20cm da essa. L'angolo di taglio deve comunque essere regolato manualmente.
+
+La finestra informativa mostra dati utili per decidere se conviene abbattere un albero o suddividerne ulteriormente il tronco.
+
+Per raggiungere la qualità massima prevista dal gioco base, pari al 120%, un pezzo di legno deve avere una forma quasi perfetta a tronco di cono, una lunghezza compresa tra 6-11m (circa 20-36 piedi) e non deve avere rami ancora attaccati.
+Non è sempre possibile raggiungere la qualità massima.
+
+Chi preferisce un'esperienza realistica può inoltre aggiungere, nelle impostazioni generali, un margine di lunghezza aggiuntivo assoluto o relativo alla lunghezza indicata per il taglio.
+
+Questa mod è compatibile con la mod Lumberjack.
+
+Scorciatoie:
+[ C ] Passa dalla modalità lunghezza alla modalità peso oppure disattiva questa funzione.
+[ Z ] Scorre le lunghezze e i pesi di destinazione disponibili.
+
+Collegamento GitHub:
+https://github.com/Timmeey86/FS25_ForestryHelper
+
+Registro delle modifiche:
+1.0.0.6:
+- Risolto un arresto anomalo che si verificava quando, dopo aver caricato il salvataggio, il primo oggetto osservato era una ceppaia
+
+1.0.0.5:
+- Risolto un problema che impediva la visualizzazione dell'indicatore di lunghezza sui tronchi molto spessi
+- Aggiunta la traduzione francese fornita da Shi974
+- Aggiunta la traduzione portoghese brasiliana fornita da Myiamoto86
+- Risolto un conflitto tra mod che riempiva il file di log di messaggi ripetuti
+- Risolto un problema per cui la finestra informativa mostrava talvolta etichette e valori non corrispondenti
+
+1.0.0.1:
+- Risolto un blocco del client che poteva verificarsi in multigiocatore se il client conservava un riferimento a un albero non più esistente.
+]]></it>
     </description>
-    
+
     <multiplayer supported="true" />
 
     <iconFilename>icon_ForestryHelper.dds</iconFilename>
